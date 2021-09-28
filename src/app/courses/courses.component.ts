@@ -26,12 +26,28 @@ export class CoursesComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.resetSelectedCourse();
+  }
 
+  resetSelectedCourse() {
+    const emptyCourse = {
+      id: null,
+      title: '',
+      description: '',
+      percentComplete: 0,
+      favorite: false,
+    };
+    this.currentCourse = emptyCourse;
+  }
   selectCourse(course) {
     this.currentCourse = course;
   }
+  saveCourse() {}
   deleteCourse(courseId) {
     this.courses = this.courses.filter((item) => item.id != courseId);
+  }
+  cancel() {
+    this.resetSelectedCourse();
   }
 }
